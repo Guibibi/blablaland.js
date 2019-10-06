@@ -10,7 +10,10 @@ var ServerBBL = require('./blablaland/blablaland.js');
 if (database.length > 2) database = JSON.parse(database);
 else database = {};
 
-var origine = new ServerBBL(12301);
+var port = process.env.PORT || 80;
+var servername = "localhost";
+
+var origine = new ServerBBL(port + 1);
 origine.database = database;
 
 setInterval(function () {
@@ -26,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/params.xml', (req, res) => {
-    res.send(`<params><scriptadr value="/scripts/"/><socket port="12301" host="127.0.0.1"/></params>`);
+    res.send(`<params><scriptadr value="/scripts/"/><socket port="${port + 1}" host="${servername}"/></params>`);
 });
 app.post('/scripts//chat/getBBL.php', (req, res) => {
     var user = getUserBySession(req.session.session);
@@ -158,8 +161,8 @@ app.get('/info', (req, res) => {
 });
 app.use(express.static('site-web'));
 
-http.listen(process.env.PORT || 80, function () {
-    console.log("Server Web on " + (process.env.PORT || 80));
+http.listen(port, function () {
+    console.log("Server Web on " + port);
 });
 
 String.prototype.replaceAll = function(search, replacement) {
