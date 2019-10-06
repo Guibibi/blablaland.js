@@ -1,0 +1,33 @@
+{
+    "1": {
+        "id": 1,
+        "pseudo": "Greg",
+        "password": "123456",
+        "skin": {
+            "color": [
+                0,
+                0,
+                88,
+                44,
+                44,
+                58,
+                0,
+                0,
+                0,
+                0
+            ],
+            "id": 7,
+            "posX": 86500,
+            "posY": 33250,
+            "direction": false
+        },
+        "map": {
+            "id": 9
+        },
+        "bbl": 0,
+        "xp": 0,
+        "session": "3920209",
+        "time": 1570372386147,
+        "role": "Membre"
+    }
+}
