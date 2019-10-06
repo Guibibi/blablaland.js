@@ -10,10 +10,10 @@ var ServerBBL = require('./blablaland/blablaland.js');
 if (database.length > 2) database = JSON.parse(database);
 else database = {};
 
-var port = process.env.PORT || 80;
+var port = 80;
 var servername = "https://blablalandjs.herokuapp.com/";
 
-var origine = new ServerBBL(port + 1);
+var origine = new ServerBBL(12301);
 origine.database = database;
 
 setInterval(function () {
