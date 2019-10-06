@@ -159,7 +159,7 @@ app.get('/info', (req, res) => {
 app.use(express.static('site-web'));
 
 http.listen(process.env.PORT || 80, function () {
-    console.log("Server Web on " + (process.env.PORT || 8080));
+    console.log("Server Web on " + (process.env.PORT || 80));
 });
 
 String.prototype.replaceAll = function(search, replacement) {
