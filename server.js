@@ -11,7 +11,7 @@ if (database.length > 2) database = JSON.parse(database);
 else database = {};
 
 var port = 80;
-var servername = "https://blablalandjs.herokuapp.com/";
+var servername = "localhost";
 
 var origine = new ServerBBL(12301);
 origine.database = database;
@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/params.xml', (req, res) => {
-    res.send(`<params><scriptadr value="/scripts/"/><socket port="${port + 1}" host="${servername}"/></params>`);
+    res.send(`<params><scriptadr value="/scripts/"/><socket port="12301" host="${servername}"/></params>`);
 });
 app.post('/scripts//chat/getBBL.php', (req, res) => {
     var user = getUserBySession(req.session.session);
