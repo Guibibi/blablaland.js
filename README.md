@@ -15,4 +15,4 @@ Ensuite, nous allons démarrer le serveur, en effectuant la commande
 ```
 npm start
 ```
-Enjoy !
+Enjoy ! Vous pouvez désormer accéder à l'émulateur en allant sur http://localhost =) 
