@@ -13,8 +13,22 @@ else database = {};
 var port = 80;
 var servername = "localhost";
 
+var request = require("request");
+  
+request({uri: "https://raw.githubusercontent.com/GregVido/blablaland.js/master/README.md"}, 
+    function(error, response, body) {
+        const local = fs.readFileSync('README.md', 'utf8');
+        if(local == body) console.log("Votre version est à jour.")
+        else console.log("Une mise à jour est disponible.")
+    }
+);
+
 var origine = new ServerBBL(12301);
+var legende = new ServerBBL(12302);
+var fury = new ServerBBL(12303);
 origine.database = database;
+legende.database = database;
+fury.database = database;
 
 setInterval(function () {
     database = fs.readFileSync("database.json");
@@ -24,7 +38,14 @@ setInterval(function () {
 }, 200);
 
 
-app.use(session({ secret: 'gpt_issou', cookie: { maxAge: 60000 } }))
+// app.use(session({ secret: 'FYJG4J1G1JGH1CG1HFC54GH1',}))
+app.use(session({
+    secret: "HT4TH41F1H61HF1HF1JHF514JY",
+    name: "blablaland.js",
+    proxy: true,
+    resave: true,
+    saveUninitialized: true
+}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -109,8 +130,10 @@ app.get('/signup', (req, res) => {
                 "map": {
                     "id":9
                 },
+                "sexe": 0,
                 "bbl": 0,
                 "xp": 0,
+                "chatColor": "0129402a0a20333334",
                 "session": req.session.session,
                 "time": new Date().getTime(),
                 "role": "Membre"
