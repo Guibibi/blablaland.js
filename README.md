@@ -1,6 +1,6 @@
 # Blablaland.js
 
-Un retro Open Source développé par GregVido v0.0.1 !
+Un retro Open Source développé par GregVido v0.0.2 !
 
 ## Installation
 
