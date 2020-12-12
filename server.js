@@ -62,10 +62,15 @@ app.get('/params.xml', (req, res) => {
 });
 
 app.post('/scripts//chat/getBBL.php', (req, res) => {
+  console.log(req, res);
   var user = getUserBySession(req.session.session);
   if (user) {
     res.send(`BBL=${user.bbl}`);
   }
+});
+
+app.get('/console', (req, res) => {
+  res.sendFile(path.join(__dirname + '/site-web/console/index.html'));
 });
 
 app.get('/connexion', (req, res) => {
